@@ -49,8 +49,8 @@ def _core(args):
             print("More than 3d numpy array is not supported")
             exit(-1)
 
-        # 2d numpy array
-        elif type(arg) == np.ndarray and len(arg.shape) == 2:
+        # Considering 2d numpy array that height != 1
+        elif type(arg) == np.ndarray and len(arg.shape) == 2 and arg.shape[0] != 1:
             str_arg = str(arg)
             arg_str_list.append(str_arg)
             arg_w_list.append(str_arg.index("\n") + 1)

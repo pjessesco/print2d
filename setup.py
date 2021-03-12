@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="print2d",
-    version="1.0",
+    version="0.1.1",
     author="Jino Park",
     author_email="pjessesco@gmail.com",
     description="print2d : Replacement of `print()` for printing 2d array with readability.",
