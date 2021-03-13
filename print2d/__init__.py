@@ -1,6 +1,9 @@
 import numpy as np
 from ._print2d_np import *
 
+import torch
+from ._print2d_torch import *
+
 
 def parse_string(string):
     return len(str(string)), 1
@@ -13,6 +16,8 @@ def _core(args):
     for arg in args:
         if type(arg) == np.ndarray:
             width, height = parse_numpy(arg)
+        elif type(arg) == torch.Tensor:
+            width, height = parse_torch(arg)
         else:
             width, height = parse_string(arg)
 
@@ -41,6 +46,11 @@ def _core(args):
             else:
                 if type(arg) == np.ndarray:
                     result_str_list[line] += np_extract_substring_height(string, line)
+                elif type(arg) == torch.Tensor:
+                    result_str_list[line] += torch_extract_substring_height(string, line)
+                else:
+                    print("Unexpected error : it should not be printed, please report issue")
+                    exit(-1)
 
     result = ""
     for s in result_str_list:
