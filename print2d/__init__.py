@@ -33,6 +33,7 @@ def _core(args):
         string = str(args[i])
         width = arg_w_list[i]
         height = arg_h_list[i]
+        arg_type = type(args[i])
 
         for line in range(output_line):
             # Considering plain text or array with height 1
@@ -44,9 +45,9 @@ def _core(args):
 
             # Considering 2d-printed objects
             else:
-                if type(arg) == np.ndarray:
+                if arg_type == np.ndarray:
                     result_str_list[line] += np_extract_substring_height(string, line)
-                elif type(arg) == torch.Tensor:
+                elif arg_type == torch.Tensor:
                     result_str_list[line] += torch_extract_substring_height(string, line)
                 else:
                     print("Unexpected error : it should not be printed, please report issue")
