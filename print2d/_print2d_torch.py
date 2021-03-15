@@ -1,5 +1,5 @@
 import torch
-
+import logging
 
 def torch_extract_substring_height(string, height):
     h = 0
@@ -21,7 +21,7 @@ def parse_torch(tensor):
     assert type(tensor) == torch.Tensor
     dim = len(tensor.shape)
     if dim > 2:
-        print("Given torch tensor's dimension is larger than 2, which is not supported.")
+        logging.error("Given torch tensor's dimension is larger than 2, which is not supported : ", tensor)
         exit(-1)
     elif dim == 2:
         if tensor.shape[0] == 1:
@@ -29,6 +29,6 @@ def parse_torch(tensor):
         else:
             return str(tensor).index("\n") + 1, tensor.shape[0]
     else:
-        print("parse_torch() : unexpected error")
+        logging.error("parse_torch() : unexpected error")
         exit(-1)
 

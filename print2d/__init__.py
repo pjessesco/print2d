@@ -1,8 +1,8 @@
 import numpy as np
 from ._print2d_np import *
-
 import torch
 from ._print2d_torch import *
+import logging
 
 
 def parse_string(string):
@@ -50,7 +50,7 @@ def _core(args):
                 elif arg_type == torch.Tensor:
                     result_str_list[line] += torch_extract_substring_height(string, line)
                 else:
-                    print("Unexpected error : it should not be printed, please report issue")
+                    logging.error("Unknown 2d array type : ", type(arg))
                     exit(-1)
 
     result = ""

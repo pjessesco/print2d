@@ -1,5 +1,5 @@
 import numpy as np
-
+import logging
 
 def np_extract_substring_height(string, height):
     h = 0
@@ -21,7 +21,7 @@ def parse_numpy(np_arr):
     assert type(np_arr) == np.ndarray
     dim = len(np_arr.shape)
     if dim > 2:
-        print("Given NumPy array's dimension is larger than 2, which is not supported.")
+        logging.error("Given NumPy array's dimension is larger than 2, which is not supported : ",np_arr)
         exit(-1)
     elif dim == 2:
         if np_arr.shape[0] == 1:
@@ -29,5 +29,5 @@ def parse_numpy(np_arr):
         else:
             return str(np_arr).index("\n") + 1, np_arr.shape[0]
     else:
-        print("parse_numpy() : unexpected error")
+        logging.error("parse_numpy() : unexpected error")
         exit(-1)
