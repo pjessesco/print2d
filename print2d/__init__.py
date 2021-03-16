@@ -3,6 +3,7 @@ from ._print2d_np import *
 import torch
 from ._print2d_torch import *
 import logging
+from ._print2d_list import *
 
 
 def parse_string(string):
@@ -20,6 +21,8 @@ def _core(args):
             width, height = parse_numpy(arg)
         elif type(arg) == torch.Tensor:
             width, height = parse_torch(arg)
+        elif type(arg) == list:
+            width, height = parse_list(arg)
         else:
             width, height = parse_string(arg)
 
@@ -51,6 +54,8 @@ def _core(args):
                     result_str_list[line] += np_extract_substring_height(arg, line)
                 elif arg_type == torch.Tensor:
                     result_str_list[line] += torch_extract_substring_height(arg, line)
+                elif arg_type == list:
+                    result_str_list[line] += list_extract_substring_height(arg, line, width)
                 else:
                     logging.error("Unknown 2d array type : ", arg_type)
                     exit(-1)
