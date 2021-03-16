@@ -1,9 +1,10 @@
 import numpy as np
 import logging
 
-def np_extract_substring_height(string, height):
+def np_extract_substring_height(np_arr, height):
     h = 0
     end = 0
+    string = str(np_arr)
     if string.count("\n") < height:
         return " " * (string.find("\n") + 2)
 

@@ -1,9 +1,10 @@
 import torch
 import logging
 
-def torch_extract_substring_height(string, height):
+def torch_extract_substring_height(torch_arr, height):
     h = 0
     end = 0
+    string = str(torch_arr)
     if string.count("\n") < height:
         return " " * (string.find("\n") + 2)
 
