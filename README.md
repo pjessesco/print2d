@@ -13,6 +13,7 @@ Replacement of `print()` for printing 2d array with readability.
 
 ## Available types
 
+ - Python `list`
  - `numpy.ndarray`
  - `torch.Tensor`
 
@@ -23,26 +24,46 @@ Replacement of `print()` for printing 2d array with readability.
 
 ## Usage
 
-`print2d()` function gets parameter separated with comma(,).
 
-## Example
+
+Import this module 
 
     from print2d import *
-    
-    import numpy as np
-    import torch
-    
-    if __name__ == '__main__':
-        np_arr = np.array([[1,2,3], [4,5,6]])
-        torch_tensor = torch.tensor([[1,2], [3,4], [5,6]])
-    
-        print2d("np_arr :", np_arr, "torch_tensor :", torch_tensor)
+
+`print2d()` function gets parameter separated with comma(,).
+
+### - Python `list`
+
+    arr1 = [[1,2],[3,4], [5,6]]
+    arr2 = [[1, 2, 3], [4, 5, 6]]
+    print2d("arr1", arr1, "arr2", arr2)
 
 ---
-    np_arr : [[1 2 3]  torch_tensor : tensor([[1, 2],  
-              [4 5 6]]                        [3, 4],  
-                                              [5, 6]]) 
+    arr1 [[1, 2]  arr2 [[1, 2, 3]  
+          [3, 4]        [4, 5, 6]] 
+          [5, 6]]                  
 
+### - `numpy.ndarray`
+
+    np1 = np.array([[1,2],[3,4], [5,6]])
+    np2 = np.array([[1, 2, 3], [4, 5, 6]])
+    print2d("np1", np1, "np2", np2)
+
+---
+    np1 [[1 2]  np2 [[1 2 3]  
+         [3 4]       [4 5 6]] 
+         [5 6]]        
+
+### - `torch.Tensor`
+
+    tc1 = torch.tensor([[1,2],[3,4], [5,6]])
+    tc2 = torch.tensor([[1, 2, 3], [4, 5, 6]])
+    print2d("tc1", tc1, "tc2", tc2)
+
+---
+    tc1 tensor([[1, 2],  tc2 tensor([[1, 2, 3],  
+                [3, 4],              [4, 5, 6]]) 
+                [5, 6]])    
 
 ## Install
 
