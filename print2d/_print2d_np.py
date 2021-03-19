@@ -1,5 +1,9 @@
-import numpy as np
 import logging
+
+
+def is_type_np(obj_type):
+    return str(obj_type) == "<class 'numpy.ndarray'>"
+
 
 def np_extract_substring_height(np_arr, target_line):
     current_line = 0
@@ -19,7 +23,7 @@ def np_extract_substring_height(np_arr, target_line):
 
 
 def parse_numpy(np_arr):
-    assert type(np_arr) == np.ndarray
+    assert is_type_np(type(np_arr))
     dim = len(np_arr.shape)
     if dim > 2:
         logging.error("Given NumPy array's dimension is larger than 2, which is not supported : ",np_arr)

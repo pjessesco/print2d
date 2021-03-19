@@ -1,9 +1,8 @@
-import numpy as np
 from ._print2d_np import *
-import torch
 from ._print2d_torch import *
-import logging
 from ._print2d_list import *
+
+import logging
 
 
 def parse_string(string):
@@ -17,11 +16,11 @@ def _core(args):
     # Parse width, height if arg has 1 or 2 dimension
     # If arg has more than 2 dimension, error will be occured in each parse_XX function.
     for arg in args:
-        if type(arg) == np.ndarray:
+        if is_type_np(type(arg)):
             width, height = parse_numpy(arg)
-        elif type(arg) == torch.Tensor:
+        elif is_type_torch(type(arg)):
             width, height = parse_torch(arg)
-        elif type(arg) == list:
+        elif is_type_list(type(arg)):
             width, height = parse_list(arg)
         else:
             width, height = parse_string(arg)
@@ -38,7 +37,6 @@ def _core(args):
         width = arg_w_list[i]
         height = arg_h_list[i]
         arg = args[i]
-        arg_type = type(arg)
 
         for line in range(output_line):
             # Considering plain text or array with height 1
@@ -50,14 +48,14 @@ def _core(args):
 
             # Considering 2d-printed objects
             else:
-                if arg_type == np.ndarray:
+                if is_type_np(type(arg)):
                     result_str_list[line] += np_extract_substring_height(arg, line)
-                elif arg_type == torch.Tensor:
+                elif is_type_torch(type(arg)):
                     result_str_list[line] += torch_extract_substring_height(arg, line)
-                elif arg_type == list:
+                elif is_type_list(type(arg)):
                     result_str_list[line] += list_extract_substring_height(arg, line, width)
                 else:
-                    logging.error("Unknown 2d array type : ", arg_type)
+                    logging.error("Unknown 2d array type : ", type(arg))
                     exit(-1)
 
     result = ""

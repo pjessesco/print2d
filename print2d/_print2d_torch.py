@@ -1,5 +1,9 @@
-import torch
 import logging
+
+
+def is_type_torch(obj_type):
+    return str(obj_type) == "<class 'torch.Tensor'>"
+
 
 def torch_extract_substring_height(torch_arr, target_line):
     current_line = 0
@@ -19,7 +23,7 @@ def torch_extract_substring_height(torch_arr, target_line):
 
 
 def parse_torch(tensor):
-    assert type(tensor) == torch.Tensor
+    assert is_type_torch(type(tensor))
     dim = len(tensor.shape)
     if dim > 2:
         logging.error("Given torch tensor's dimension is larger than 2, which is not supported : ", tensor)

@@ -1,5 +1,8 @@
-import tensorflow as tf
 import logging
+
+
+def is_type_list(obj_type):
+    return str(obj_type) == "<class 'list'>"
 
 
 # Helper function that decides whether input_list is 2d array as expected.
@@ -80,7 +83,7 @@ def list_extract_substring_height(list_arr, target_line, line_width):
 
 def parse_list(input_list):
 
-    assert type(input_list) == list
+    assert is_type_list(type(input_list))
     if is_list_1d(input_list):
         return len(str(input_list)), 1
 
