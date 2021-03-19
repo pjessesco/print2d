@@ -14,8 +14,8 @@ Replacement of `print()` for printing 2d array with readability.
 ## Available types
 
  - Python `list`
- - `numpy.ndarray`
- - `torch.Tensor`
+ - NumPy `ndarray`
+ - PyTorch `Tensor`
 
 ## Install
 
@@ -24,15 +24,13 @@ Replacement of `print()` for printing 2d array with readability.
 
 ## Usage
 
-
-
 Import this module 
 
     from print2d import *
 
 `print2d()` function gets parameter separated with comma(,).
 
-### - Python `list`
+### Python list
 
     arr1 = [[1,2],[3,4], [5,6]]
     arr2 = [[1, 2, 3], [4, 5, 6]]
@@ -43,7 +41,7 @@ Import this module
           [3, 4]        [4, 5, 6]] 
           [5, 6]]                  
 
-### - `numpy.ndarray`
+### NumPy ndarray
 
     np1 = np.array([[1,2],[3,4], [5,6]])
     np2 = np.array([[1, 2, 3], [4, 5, 6]])
@@ -54,7 +52,7 @@ Import this module
          [3 4]       [4 5 6]] 
          [5 6]]        
 
-### - `torch.Tensor`
+### PyTorch Tensor
 
     tc1 = torch.tensor([[1,2],[3,4], [5,6]])
     tc2 = torch.tensor([[1, 2, 3], [4, 5, 6]])
@@ -65,12 +63,15 @@ Import this module
                 [3, 4],              [4, 5, 6]]) 
                 [5, 6]])    
 
-## Install
+### Combination
 
-    pip install print2d
-          
+    arr1 = [[1,2],[3,4], [5,6]]
+    np2 = np.array([[1, 2, 3], [4, 5, 6]])
+    print2d("arr1", arr1, "np2", np2)
 
-    
-
+---
+    arr1 [[1, 2]  np2 [[1 2 3]  
+          [3, 4]       [4 5 6]] 
+          [5, 6]]               
 
 
