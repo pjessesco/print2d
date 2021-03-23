@@ -1,6 +1,7 @@
 # print2d : Print 2d array with readability
 
-[![PyPI version](https://badge.fury.io/py/print2d.svg)](https://badge.fury.io/py/print2d)
+[![PyPI version](https://badge.fury.io/py/print2d.svg)](https://badge.fury.io/py/print2d) 
+[![Downloads](https://pepy.tech/badge/print2d)](https://pepy.tech/project/print2d)
 
 Replacement of `print()` for printing 2d array with readability.
 
