@@ -32,7 +32,7 @@ def parse_torch(tensor):
         if tensor.shape[0] == 1:
             return len(str(tensor)), 1
         else:
-            return str(tensor).index("\n") + 1, tensor.shape[0]
+            return str(tensor).index("\n") + 1, str(tensor).count('\n')
     else:
         logging.error("parse_torch() : unexpected error")
         exit(-1)

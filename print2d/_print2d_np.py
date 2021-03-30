@@ -32,7 +32,7 @@ def parse_numpy(np_arr):
         if np_arr.shape[0] == 1:
             return len(str(np_arr)), 1
         else:
-            return str(np_arr).index("\n") + 1, np_arr.shape[0]
+            return str(np_arr).index("\n") + 1, str(np_arr).count('\n')
     else:
         logging.error("parse_numpy() : unexpected error")
         exit(-1)
